@@ -1,0 +1,275 @@
+// out: ../css/stylesheet.css
+
+@pixelbite-primary: #2c84bd;
+@pixelbite-primary-dark: #166ea7;
+@pixelbite-secondary: #eb921e;
+
+body {
+    font-family: 'Anaheim', Arial, Helvetica, sans-serif;
+}
+
+section {
+    padding: 30px 0 140px 0;
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100px;
+        background: transparent;
+        position: absolute;
+        top: -50px;
+        transform: skewY(-3deg);
+        -webkit-transform: skewY(-3deg);
+        -moz-transform: skewY(-3deg);
+        -o-transform: skewY(-3deg);
+        -ms-transform: skewY(-3deg);
+    }
+
+}
+
+.content {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+h2 {
+    font-size: 3.4em;
+
+    &:after {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 4px;
+        background: @pixelbite-primary-dark;
+        margin-top: 7px;
+    }
+}
+
+p {
+    text-align: left;
+    font-size: 1.5em;
+    line-height: 1.2em;
+
+    &.sublead {
+        font-size: 1.2em;
+        color: #999;
+    }
+}
+
+ul.honeycomb {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+    &.works {
+        text-align: left;
+    }
+
+    li {
+        &.coil {
+            position: relative;
+            display: inline-block;
+            /* left/right margin approx. 25% of .hexagon width + spacing */
+            margin: 0 40px 10px 30px;
+            background-color: @pixelbite-secondary;
+            text-align: center;
+            width: 67px;
+            height: 116px;
+            border-radius: 20%/5%;
+
+            &.behance { background: #436ab3; &:hover { background: darken(#436ab3, 10%); } }
+            &.dribble { background: #ea4c89; &:hover { background: darken(#ea4c89, 10%); } }
+            &.github { background: #333333; &:hover { background: darken(#333333, 10%); } }
+            &.facebook { background: #3b5999; &:hover { background: darken(#3b5999, 10%); } }
+
+            &:before, &:after {
+                /* easy way: height is width * 1.732
+                actual formula is 2*(width/(2*Math.tan(Math.PI/6)))
+                remove border-radius for straight edges on hexagons */
+                width: 67px;
+                height: 116px;
+                border-radius: 20%/5%;
+            }
+
+            &:before {
+                background-color: inherit;
+                content: "";
+                position: absolute;
+                left: 0;
+                transform: rotate(-60deg);
+            }
+
+            &:after {
+                background-color: inherit;
+                content: "";
+                position: absolute;
+                left: 0;
+                transform: rotate(60deg);
+            }
+
+            &:hover {
+              background-color: @pixelbite-primary;
+              cursor: pointer;
+              z-index: 105;
+            }
+
+            .coil-contents {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 140%;
+              font-size: 1.2em;
+              line-height: 1;
+              color: #fff;
+              z-index: 100;
+            }
+        }
+    }
+}
+
+#page-lead {
+    background: #fff;
+    padding: 40px 0 70px 0;
+
+    &:before {
+        display: none;
+    }
+
+    @media(min-width: 768px) {
+        padding: 100px 0 140px 0;
+    }
+
+    #page-lead-logotype {
+        text-align: center;
+
+        @media(min-width: 768px) {
+            text-align: right;
+            padding-right: 30px;
+        }
+
+        img {
+            width: 165px;
+        }
+    }
+
+    #page-lead-address {
+        padding: 20px 30px;
+
+        @media(min-width: 768px) {
+            border-left: 6px solid #e9e9e9;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.8em;
+            line-height: 1em;
+
+            &.contacts {
+                font-size: 1.5em;
+                line-height: 1em;
+            }
+
+            @media(min-width: 768px) {
+                text-align: left;
+            }
+
+            .country { color: #999; }
+            .email { color: @pixelbite-secondary; }
+        }
+    }
+}
+
+#who-we-are {
+    background: @pixelbite-primary;
+    color: #fff;
+
+    &:before {
+        background: @pixelbite-primary;
+    }
+
+    h2 {
+        color: #fff;
+    }
+}
+
+#what-we-do {
+    background: #f9f9f9;
+
+    &:before {
+        background: #f9f9f9;
+        transform: skewY(3deg);
+        -webkit-transform: skewY(3deg);
+        -moz-transform: skewY(3deg);
+        -o-transform: skewY(3deg);
+        -ms-transform: skewY(3deg);
+    }
+
+    em {
+        font-weight: 900;
+        font-style: normal;
+        color: @pixelbite-primary;
+    }
+}
+
+#our-work {
+    background: #242424;
+    color: #fff;
+
+    &:before {
+        background: #242424;
+    }
+
+    h2 {
+        &:after {
+            background: @pixelbite-secondary;
+        }
+    }
+}
+
+#contact-us {
+    background: #0e0e0e;
+    color: #fff;
+    padding-bottom: 50px;
+
+    &:before {
+        background: #0e0e0e;
+        transform: skewY(3deg);
+        -webkit-transform: skewY(3deg);
+        -moz-transform: skewY(3deg);
+        -o-transform: skewY(3deg);
+        -ms-transform: skewY(3deg);
+    }
+
+    form {
+        padding: 15px 0;
+
+        .form-control {
+            background: #161616;
+            color: #fff;
+            border-radius: 0;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+            border: 0 none;
+            outline: 0 none;
+        }
+
+        textarea {
+            &.form-control {
+                background: #222;
+                resize: vertical;
+                min-height: 230px;
+            }
+        }
+    }
+}
+
+footer {
+    background: #0e0e0e;
+    color: #444;
+    text-align: center;
+    font-size: 1em;
+    padding-bottom: 30px;
+}
